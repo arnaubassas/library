@@ -1,0 +1,81 @@
+body {
+    background-color: black;
+    padding: 10px;
+    margin: 2px;
+    border: solid 2px;
+    border-color: white;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.screen {
+    display: flex;
+
+}
+
+.read {
+    padding: 10px;
+    margin: 2px;
+    border: solid 2px;
+    border-color: white;
+    border-radius: 5px;
+    background-color: rgb(43, 40, 40);
+    width: 35%;
+
+}
+
+.available {
+    width: 65%;
+}
+
+.buttonRead {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    bottom: 245px;
+    left: 160px;
+}
+
+.card {
+    margin: 10px;
+}
+
+.button2 {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.covers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+}
+
+.filters2 {
+    margin-right: 100px;
+}
+
+.button2:not([disabled]):hover {
+    transform: scale(1.1);
+    /* Escala al 110% */
+}
+
+.button2[disabled] {
+    opacity: 60%;
+}
+
+input {
+    color: black;
+}
