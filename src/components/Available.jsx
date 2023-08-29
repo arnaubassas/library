@@ -16,7 +16,7 @@ export const Available = ({ library, lectura, setLectura }) => {
                 {lectura.length > 0 && <div><h5>{lectura.length} en la lista de lecturas</h5></div>}
                 <div className="filters">
                     <div className="filters2">
-                        <Pages library={library} setNumPages={setNumPages} />
+                        <Pages library={library} setNumPages={setNumPages} numPages={numPages} />
                     </div>
                     <div>
                         <Genre library={library} setFilter={setFilter} />

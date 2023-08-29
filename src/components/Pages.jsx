@@ -1,5 +1,5 @@
 
-export const Pages = ({ library, setNumPages }) => {
+export const Pages = ({ library, setNumPages, numPages }) => {
 
     const handleSelectChange = (event) => {
         const value = event.target.value;
@@ -10,6 +10,7 @@ export const Pages = ({ library, setNumPages }) => {
         <>
             <h4>Filtrar por páginas</h4>
             <input type="range" min="1" max="2000" onChange={handleSelectChange} defaultValue='1'></input>
+            <span>{numPages}</span>
         </>
     )
 
