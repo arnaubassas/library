@@ -4,6 +4,8 @@ export const ImageDisponible = ({ book, lectura, setLectura, filter, numPages })
 
     const handleclick = () => {
         setLectura([...lectura, ISBN]);
+        const newValue = [...lectura, ISBN];
+        localStorage.setItem('lectura', JSON.stringify(newValue));
     }
 
     if (filter !== 'Todas') {

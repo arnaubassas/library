@@ -4,6 +4,8 @@ export const Lectura = ({ book, setLectura, lectura }) => {
 
     const handleclick = () => {
         setLectura(lectura.filter((nueva) => !ISBN.includes(nueva)));
+        const newValue = lectura.filter((nueva) => !ISBN.includes(nueva));
+        localStorage.setItem('lectura', JSON.stringify(newValue));
     }
 
     return (

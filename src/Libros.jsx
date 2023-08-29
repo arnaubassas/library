@@ -3,7 +3,7 @@ import books from './books.json';
 import { Available } from './components/Available';
 import { Read } from './components/Read';
 import { useEffect, useState } from 'react';
-let firstRender = true;
+
 
 export const Base = () => {
 
@@ -11,22 +11,25 @@ export const Base = () => {
     const [lectura, setLectura] = useState([]);
 
 
-    console.log('1', localStorage)
-    console.log('2', lectura)
-    console.log('4', firstRender)
+
     useEffect(() => {
-        if (firstRender) {
-            const initValor = localStorage.getItem('lectura');
-            setLectura(initValor)
-            firstRender = false;
-        } else {
-            const updatedLectura = [...lectura];
-            console.log('3', updatedLectura)
-            localStorage.setItem('lectura', JSON.stringify(updatedLectura));
-        }
-    }, [lectura]);
+        // Al cargar la pestaña, obtenemos los datos almacenados en el local storage
+        const storedLectura = JSON.parse(localStorage.getItem('lectura')) || [];
+        setLectura(storedLectura);
 
+        // Escuchar el evento storage para detectar cambios realizados en otras pestañas
+        const handleStorageChange = (e) => {
+            if (e.key === 'lectura' && e.newValue) {
+                setLectura(JSON.parse(e.newValue));
+            }
+        };
 
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
 
     return (
         <div className='screen'>
